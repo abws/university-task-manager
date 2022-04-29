@@ -18,8 +18,13 @@ $('#add-task-button').click(function(evt) {
  * @param {event} evt 
  */
 function taskAdmin(evt) {
-    evt.preventDefault();
-    if (!checkDate()) return false;
+    evt.preventDefault(); //prevent form from submitting
+
+    let checkedDate = checkDate();
+    if (!checkedDate.at(0)) return false;
+
+    let task = new Task($('#title').val(), $('#description').val(), checkedDate.at(1), checkedDate.at(2));
+    console.log(task);
 }
 
 /**
@@ -49,10 +54,8 @@ function checkDate() {
 
     let currentTotalTime = getCurrentDate().at(2);
     
-    console.log((startDate.getTime() >= endDate.getTime() || startDate.getTime() <= currentTotalTime));
-
-    if (startDate.getTime() > endDate.getTime() || startDate.getTime() < currentTotalTime) return false;
-    return true;
+    if (startDate.getTime() > endDate.getTime() || startDate.getTime() < currentTotalTime) return [false];
+    return [true, startDate, endDate];
 }
 
 /**

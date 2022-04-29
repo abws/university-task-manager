@@ -4,15 +4,15 @@ import { getCount } from '../index.js';
  * Class representing all tasks
  */
 export class Task {
-    constructor(title, description, date, start, end) {
+    constructor(title, description, start, end) {
         this.id = getCount();
         this.title = title;
         this.description = description;
-        this.date = date;
+        //this.date = date;
         this.start = start;
         this.end = end;
     }
-
+    /*
     get title() {
         return this.title;
     }
@@ -28,7 +28,7 @@ export class Task {
     set description(description){
         this.description = description;
     }
-
+    /*
     get date() {
         return this.date;
     }
@@ -36,7 +36,7 @@ export class Task {
     set date(date){
         this.date = date;
     }
-
+    
     get start() {
         return this.start;
     }
@@ -52,4 +52,5 @@ export class Task {
     set end(end){
         this.end = end;
     }
+    */
 }
