@@ -1,9 +1,10 @@
 import { Task } from './modules/Task.mjs';
 
+
 /**
  * Local storage preparation
  */
-if(!('tasks' in localStorage)) localStorage.setItem('task', {});
+if(!('tasks' in localStorage)) localStorage.setItem('tasks', '{}');
 if(!('counter' in localStorage)) localStorage.setItem('counter', 0);
 
 /**
@@ -24,7 +25,8 @@ function taskAdmin(evt) {
     if (!checkedDate.at(0)) return false;
 
     let task = new Task($('#title').val(), $('#description').val(), checkedDate.at(1), checkedDate.at(2));
-    console.log(task);
+
+    createTask(task);
 }
 
 /**
@@ -83,5 +85,21 @@ function getCurrentDate() {
     return [date, time, totalTime, year, month, day, hours, minutes];
 }
 
+/**
+ * Stores tasks into local storage
+ * @param {Task} task 
+ * @returns {boolean}
+ */
+function createTask(task) {
+    if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
 
+    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    let taskId = task.id;
+
+    tasks = Object.assign({taskId: task}, tasks);
+    tasks = JSON.stringify(tasks);
+    localStorage.setItem('tasks', tasks);
+
+    return true;
+}
 
