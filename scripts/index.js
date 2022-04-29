@@ -7,7 +7,7 @@ if(!('tasks' in localStorage)) localStorage.setItem('task', {});
 if(!('counter' in localStorage)) localStorage.setItem('counter', 0);
 
 /**
- * Attach handlers
+ * Handle events
  */
 $('#add-task-button').click(function(evt) {
     taskAdmin(evt);
@@ -40,14 +40,17 @@ export function getCount() {
  * @returns 
  */
 function checkDate() {
-    $('#date').val().split("/");
-    $('#start').val().split(":");
-    $('#end').val().split(":");
+    let date = $('#date').val().split("/"),
+    start = $('#start').val().split(":"),
+    end = $('#end').val().split(":");
 
-    if ($('#date').val()) return false;
-    
-    if ($('#start').val()) return false;
-    if ($('#end').val()) return false;
+    let startDate = new Date(date.at(2), date.at(1), date.at(0), start.at(0), start.at(1)),
+    endDate = new Date(date.at(2), date.at(1), date.at(0), end.at(0), end.at(1));
+
+    let currentTotalTime = getCurrentDate().at(2);
+
+    if (startDate.getTime() > endDate.getTime() || startDate.getTime() < currentTotalTime) return false;
+    return true;
 }
 
 /**
@@ -58,19 +61,21 @@ function getCurrentDate() {
     let dateBuilder = new Date();
 
     let year = dateBuilder.getFullYear();   //[-5]
-    let month = dateBuilder.getMonth() + 1; //[-4]
-    let day = dateBuilder.getDate();        //[-3]
+    month = dateBuilder.getMonth() + 1;     //[-4]
+    day = dateBuilder.getDate();            //[-3]
 
     if (month < 10) month = '0' + month;
     if (day < 10) day = '0' + day;
 
     let hours = dateBuilder.getHours();     //[-2]
-    let minutes = dateBuilder.getMinutes(); //[-1]
+    minutes = dateBuilder.getMinutes();     //[-1]
 
     let date = '${day}/${month}/${year}';   //[0]
-    let time = '${hours}:${minutes}';       //[1]
+    time = '${hours}:${minutes}';           //[1]
 
-    return [date, time, year, month, hours, minutes];
+    let totalTime = date.getTime();         //[2]
+
+    return [date, time, totalTime, year, month, hours, minutes];
 }
 
 
