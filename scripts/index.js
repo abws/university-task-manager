@@ -1,4 +1,4 @@
-import {Task} from 'Task.js';
+import { Task } from 'Task.mjs';
 
 /**
  * Local storage preparation
@@ -27,7 +27,7 @@ function taskAdmin(evt) {
  * Use sparcely and only when needed
  * @returns {number} Current count
  */
-function getCount() {
+export function getCount() {
     if(!('counter' in localStorage)) localStorage.setItem('counter', 0);
     let count = localStorage.getItem('counter');
     count++;

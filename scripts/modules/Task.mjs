@@ -1,9 +1,9 @@
-import getCount from 'index.js';
+import { getCount } from 'index.js';
 
 /**
  * Class representing all tasks
  */
-class Task {
+export class Task {
     constructor(title, description, date, start, end) {
         this.id = getCount();
         this.title = title;
