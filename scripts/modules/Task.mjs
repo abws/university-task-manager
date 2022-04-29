@@ -1,4 +1,4 @@
-import { getCount } from 'index.js';
+import { getCount } from '../index.js';
 
 /**
  * Class representing all tasks
