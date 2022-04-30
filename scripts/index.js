@@ -1,5 +1,15 @@
 import { Task } from './modules/Task.mjs';
 
+window.onload = (event) => {
+    $('#title').val('hi');
+    $('#description').val('hi');
+
+    $('#date').val('2022-12-22');
+    $('#start').val('01:01');
+    $('#end').val('02:02');
+
+}
+
 
 /**
  * Local storage preparation
@@ -26,7 +36,7 @@ function taskAdmin(evt) {
 
     let task = new Task($('#title').val(), $('#description').val(), checkedDate.at(1), checkedDate.at(2));
 
-    createTask(task);
+    addTask(task);
 }
 
 /**
@@ -90,14 +100,30 @@ function getCurrentDate() {
  * @param {Task} task 
  * @returns {boolean}
  */
-function createTask(task) {
+function addTask(task) {
     if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
 
+    console.log(task);
+    console.log(Object.getPrototypeOf(task));
+
+    console.log(task.getTime());
     let tasks = JSON.parse(localStorage.getItem('tasks'));
     tasks[task.id] = task;
 
     tasks = JSON.stringify(tasks);
     localStorage.setItem('tasks', tasks);
+
+    task = JSON.parse(tasks)[task.id];
+
+    let date = new Date(task.start);
+    let date2 = new Date(task.end);
+    task.start = date;
+    task.end = date2;
+    Object.setPrototypeOf(task, Task.prototype);
+
+    console.log(Object.getPrototypeOf(task));
+    console.log(task.getTime());
+    console.log(task);
 
     return true;
 }

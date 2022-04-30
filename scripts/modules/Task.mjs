@@ -17,7 +17,7 @@ export class Task {
     }
 
     /**
-     * Used to order tasks by start time
+     * Used to order tasks by start
      * @returns {integer} The comparative time between tasks
      */
     getTime() {
