@@ -1,4 +1,6 @@
 import { Task } from './modules/Task.mjs';
+import { showAnytimeTask,  showScheduledTask } from './templates/TaskListTemplates.js';
+
 
 window.onload = (event) => {
     $('#title').val('hi');
@@ -37,6 +39,9 @@ function taskAdmin(evt) {
     let task = new Task($('#title').val(), $('#description').val(), checkedDate.at(1), checkedDate.at(2));
 
     addTask(task);
+    
+    if (task.description != '') showScheduledTask(task);
+    else showAnytimeTask(task);
 }
 
 /**
@@ -103,10 +108,6 @@ function getCurrentDate() {
 function addTask(task) {
     if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
 
-    console.log(task);
-    console.log(Object.getPrototypeOf(task));
-
-    console.log(task.getTime());
     let tasks = JSON.parse(localStorage.getItem('tasks'));
     tasks[task.id] = task;
 

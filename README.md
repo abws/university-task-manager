@@ -2,13 +2,16 @@
 
 Entirely Front-End Web-Based Task Manager
 
-## Libraries used:
-1. Bootstrap - CSS Library
-2. JQuery - Javascript Library
+## CSS Libraries used:
+1. Bootstrap - Reusable components & CSS classes
+
+# Javascript Libraries used
+1. JQuery - Mainly for DOM manipulation
+2. anime.js - Animation
 
 ## Web API's used:
-1. Web Storage API
-2. Web Speech API
+1. Web Storage API - For client-side storage
+2. Web Speech API - For speech recognition (accessiblity)
 
 ## To use this prototype:
 1. View in chrome in case of adverse side-effects (for marking), however should work perfectly on other browsers
