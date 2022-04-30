@@ -94,9 +94,8 @@ function createTask(task) {
     if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
 
     let tasks = JSON.parse(localStorage.getItem('tasks'));
-    let taskId = task.id;
+    tasks[task.id] = task;
 
-    tasks = Object.assign({taskId: task}, tasks);
     tasks = JSON.stringify(tasks);
     localStorage.setItem('tasks', tasks);
 

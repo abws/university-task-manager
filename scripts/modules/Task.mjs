@@ -15,4 +15,12 @@ export class Task {
     #buildId() {
         return 'task' + getCount();
     }
+
+    /**
+     * Used to order tasks by start time
+     * @returns {integer} The comparative time between tasks
+     */
+    getTime() {
+        return this.start.getTime();
+    }
 }
