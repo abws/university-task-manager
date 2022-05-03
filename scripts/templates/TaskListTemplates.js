@@ -1,5 +1,5 @@
 /**
- * Holds all reusable components for index page
+ * Holds all reusable components for rendering onto the index page
  */
 
 export function showAnytimeTask(task) {
