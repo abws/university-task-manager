@@ -65,7 +65,7 @@
                     <!--Header-->
                     <div class="custom-header">
                         <!--Searchbar (Header-Left)-->
-                        <div class="d-flex p-3">
+                        <div class="d-flex p-3 header-left">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search tasks..." aria-label="Search bar for tasks">
                                 <button class="btn btn-success" type="button" id="button-addon">Search</button>
@@ -75,16 +75,19 @@
                         <!--Header-Right-->
                         <ul class="d-flex flex-row header-right">
                             <!--Language-->
-                            <li class="dropdown me-5">
+                            <li class="dropdown me-5 language">
                                 <a class="nav-link link-normal dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img class="me-2"src="images/us.jpeg" alt="" height="18">
-                                    English
+                                    <span class="flag">English</span>
                                 </a>
                                 <!--Language options-->
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li class="dropdown-list">                                
+                                        <a class="dropdown-item link-normal">
+                                            <img class="me-2"src="https://www.worldatlas.com/r/w960-q80/img/flag/so-flag.jpg" alt="" height="18">
+                                            Soomali
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -101,7 +104,7 @@
                                             <path d="M507.36 570.42c-75.15 0-136.29-61.14-136.29-136.3s61.14-136.3 136.29-136.3 136.3 61.15 136.3 136.3-61.14 136.3-136.3 136.3z m0-245.09a108.8 108.8 0 1 0 108.8 108.79 108.92 108.92 0 0 0-108.8-108.79z" fill="#3585F9" />
                                         </svg>
                                     </span>
-                                    <span class="me-3">Abdiwahab Salah</span>
+                                    <span class="name me-3">Abdiwahab Salah</span>
                                 </a>
                                 <ul class="dropdown-menu text-start">
                                     <li>
