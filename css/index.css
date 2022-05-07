@@ -26,6 +26,11 @@ ul.header-right {
     overflow: scroll;
 }
 
+.nav-brand {
+    font-size: 2rem;
+    color: white;
+}
+
 .nav-link.side {
     color: #b8bec5;
 }
@@ -89,6 +94,10 @@ ul.header-right {
     }
     .hide-mid {
         display: none;
+    }
+
+    .nav-brand {
+        font-size: 1rem;
     }
 }
 
