@@ -4,6 +4,7 @@ html, body {
     margin: 0;
 }
 
+/*SideBar*/
 .side-bar {
     background-color: #313a46;
     max-width: 18rem;
@@ -11,29 +12,41 @@ html, body {
     overflow: scroll;
 }
 
-.nav-link {
-
-
+.nav-link.side {
+    color: #b8bec5;
 }
 
-.nav-link.active {
-    background-color: #4d8be2!important;
-    border-radius: 0.75rem;
+.nav-link.side.active {
+    background-color: #85a6d3!important;
+    border-radius: 1rem;
 }
 
-.nav-link:hover {
+.nav-link.side:hover {
     font-size: 1.4rem;
-    
 }
 
 /*For Mid Size Screens*/
 @media only screen and (max-width: 968px){
-    
+
     /*hide side bar and make it smaller*/
     .side-bar {
         max-width: 8rem;
+    }
+
+    .nav-link.side {
+        text-align: center;
     }
     .hide-mid {
         display: none;
     }
 }
+
+/*For Small Screens*/
+@media only screen and (max-width: 454px){
+
+    /*hide side bar and make it smaller*/
+    .side-bar {
+        display: none!important;
+    }
+}
+
