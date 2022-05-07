@@ -11,54 +11,119 @@
     <title>Task Manager</title>
 </head>
     <body> 
-        <!--Side Bar-->
-        <div class="side-bar d-flex flex-column p-4">
-            <ul class="nav nav-pills flex-column">
+        <div class="container-fluid">
+            <div class="row">
+                <!--Side Bar-->
+                <div class="side-bar d-flex flex-column p-4">
+                    <ul class="nav nav-pills flex-column">
 
-                <li class="nav-item mb-4">
-                    <a class="nav-link side active" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-                        </svg>
-                        <span class="align-middle ms-3 hide-mid">Home</span>
-                    </a>
-                </li>
+                        <li class="nav-item mb-4">
+                            <a class="nav-link side active" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                                </svg>
+                                <span class="align-middle ms-3 hide-mid">Home</span>
+                            </a>
+                        </li>
 
-                <li class="nav-item mb-4">
-                    <a class="nav-link side link-light" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-clipboard2-data" viewBox="0 0 16 16">
-                            <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
-                            <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
-                            <path d="M10 7a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V9a1 1 0 0 0-1-1Z"/>
-                        </svg>
-                        <span class="align-middle ms-3 hide-mid">Environment</span>
-                    </a>
-                </li>
+                        <li class="nav-item mb-4">
+                            <a class="nav-link side link-light" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-clipboard2-data" viewBox="0 0 16 16">
+                                    <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z"/>
+                                    <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z"/>
+                                    <path d="M10 7a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7Zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1Zm4-3a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V9a1 1 0 0 0-1-1Z"/>
+                                </svg>
+                                <span class="align-middle ms-3 hide-mid">Environment</span>
+                            </a>
+                        </li>
 
-                <li class="nav-item mb-4">
-                    <a class="nav-link side link-light" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
-                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                            <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                        </svg>
-                        <span class="align-top ms-3 hide-mid">Connect</span>
-                    </a>
-                </li>
+                        <li class="nav-item mb-4">
+                            <a class="nav-link side link-light" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
+                                    <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                    <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                </svg>
+                                <span class="align-top ms-3 hide-mid">Connect</span>
+                            </a>
+                        </li>
 
-                <li class="nav-item">
-                    <a class="nav-link side link-light" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
-                            <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-                        </svg>
-                        <span class="align-middle ms-3 hide-mid">Calendar</span>
-                    </a>
-                </li>
-            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link side link-light" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                    <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                </svg>
+                                <span class="align-middle ms-3 hide-mid">Calendar</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-            </ul>
+                <!--Right side-->
+                <div class="col p-0">
+                    <!--Header-->
+                    <div class="custom-header">
+                        <!--Searchbar (Header-Left)-->
+                        <div class="d-flex p-3">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search tasks..." aria-label="Search bar for tasks">
+                                <button class="btn btn-success" type="button" id="button-addon">Search</button>
+                            </div>
+                        </div>
+
+                        <!--Header-Right-->
+                        <ul class="d-flex flex-row header-right">
+                            <!--Language-->
+                            <li class="dropdown me-5">
+                                <a class="nav-link link-normal dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img class="me-2"src="images/us.jpeg" alt="" height="18">
+                                    English
+                                </a>
+                                <!--Language options-->
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+
+                            <!--User-->
+                            <li class="nav-item dropdown text-center user">
+                                <a class="link-normal text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                                    <span>
+                                        <svg class="svg-icon" style="width: 3em; height: 3em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M507.36 103C279.84 103 94.73 288.12 94.73 515.66a422.41 422.41 0 0 0 6.48 70.61c0 0.14 0.25 0.08 0.3 0.2a13.58 13.58 0 0 0 13 10.06 13.76 13.76 0 0 0 13.75-13.76 11.88 11.88 0 0 0-0.27-1.32l0.24-0.11a386 386 0 0 1-6-65.66c0-212.7 172.43-385.13 385.12-385.13S892.49 303 892.49 515.68 720.06 900.8 507.36 900.8c-142.14 0-266-77.22-332.69-191.79 0-0.07-0.09-0.11-0.11-0.18-0.18-0.3-0.38-0.59-0.55-0.89a13.61 13.61 0 0 0-12-7.37 13.76 13.76 0 0 0-13.75 13.75 13.42 13.42 0 0 0 2.74 7.83l-0.23 0.14c71.53 123 204.41 206 356.61 206C734.89 928.29 920 743.2 920 515.66S734.89 103 507.36 103z" fill="#3585F9" />
+                                            <path d="M507.37 570.43c82.32 0 149.31 67 149.31 149.31h27.51c0-97.49-79.32-176.82-176.82-176.82s-176.83 79.33-176.83 176.82h27.51c0-82.33 66.95-149.31 149.32-149.31z" fill="#3585F9" />
+                                            <path d="M344.29 719.74m-13.75 0a13.75 13.75 0 1 0 27.5 0 13.75 13.75 0 1 0-27.5 0Z" fill="#3585F9" />
+                                            <path d="M670.43 719.74m-13.75 0a13.75 13.75 0 1 0 27.5 0 13.75 13.75 0 1 0-27.5 0Z" fill="#3585F9" />
+                                            <path d="M531.854464 448.620636m-76.926146 76.926147a108.79 108.79 0 1 0 153.852293-153.852294 108.79 108.79 0 1 0-153.852293 153.852294Z" fill="#BAD4FF" />
+                                            <path d="M507.36 570.42c-75.15 0-136.29-61.14-136.29-136.3s61.14-136.3 136.29-136.3 136.3 61.15 136.3 136.3-61.14 136.3-136.3 136.3z m0-245.09a108.8 108.8 0 1 0 108.8 108.79 108.92 108.92 0 0 0-108.8-108.79z" fill="#3585F9" />
+                                        </svg>
+                                    </span>
+                                    <span class="me-3">Abdiwahab Salah</span>
+                                </a>
+                                <ul class="dropdown-menu text-start">
+                                    <li>
+                                        <a class="dropdown-item" href="#">Profile</a>
+                                        <a class="dropdown-item" href="#">Preferences</a>
+                                        <a class="dropdown-item" href="#">Settings</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">Sign out</a>
+                                    </li>        
+                                </ul>
+                            </li>
+
+                        
+
+                    </div>
+
+                </div>
+            </div>        
         </div>
+
 
 
 
