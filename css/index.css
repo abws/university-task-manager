@@ -4,6 +4,7 @@ html, body {
     color: #98a6ad;
     background-color: #f8fafd;
     margin: 0;
+    font-family: 'Barlow', sans-serif;
 }
 
 ul.header-right {
