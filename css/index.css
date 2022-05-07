@@ -1,36 +1,39 @@
 html, body {
     min-height: 100vh;
+    color: #98a6ad;
     margin: 0;
 }
 
-.navbar {
-    box-shadow: 0px 10px 8px -5px rgb(231, 230, 230);
+.side-bar {
+    background-color: #313a46;
+    max-width: 18rem;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.nav-link {
+
+
+}
+
+.nav-link.active {
+    background-color: #4d8be2!important;
+    border-radius: 0.75rem;
 }
 
 .nav-link:hover {
-    color: #3585f9;
-}
-
-hr {
-    width: 75%;
-    margin: 0 auto;
-}
-
-.dropdown-menu {
-    min-width: fit-content;
-}
-
-.dropdown-menu hr {
-    transform: translate(18%, 0%);
+    font-size: 1.4rem;
     
 }
 
-@media only screen and (max-width: 1027px) {
-    span {
+/*For Mid Size Screens*/
+@media only screen and (max-width: 968px){
+    
+    /*hide side bar and make it smaller*/
+    .side-bar {
+        max-width: 8rem;
+    }
+    .hide-mid {
         display: none;
     }
-    .fit {
-        width: fit-content;
-    }
-
 }
