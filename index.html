@@ -130,7 +130,7 @@
                     <!--End of Header-->
 
                     <!--MAIN CONTENT FOR DASHBOARD-->
-                    <div class="container-fluid h-100 p-5">
+                    <div class="container-fluid p-5">
                         <div class="row justify-content-around">
 
                             <div class="col-xl-4 col-lg-6 col-12 mb-5">
@@ -144,23 +144,28 @@
 
                             <div class="col-xl-4 col-lg-6 col-12 mb-5">
                                 <div class="card">
+
                                     <div class="card-header d-flex justify-content-between">   
                                         <span>Anytime Tasks</span> 
-                                        <i class="bi bi-gear"></i>
+                                        <a href="#"><i class="bi bi-gear"></i></a>
                                     </div>
+
                                     <div class="card-body">
-                                        <form class="anytime-task">
-                                            <ul class="list-group">
-                                                <div class="mb-2">
-                                                    <li class="list-group-item">
-                                                        <input class="form-check-input rounded-circle" type="checkbox" value="" id="flexCheckDefault">
-                                                        This is a list of tasks
-                                                    </li>
-                                                </div>
-                                            </ul>
-                                            <input class="form-control" id="title" placeholder="Enter task...">
+                                        <ul class="list-group" id="anytime-tasks">
+                                            <div class="mb-2">
+                                                <li class="list-group-item anytime-task">
+                                                    <input class="form-check-input rounded-circle tick" type="checkbox" value="" id="flexCheckDefault">
+                                                    <span class="mx-2">This is a list of tasks</span>
+                                                    <a href="#"><i class="bi bi-pencil float-end"></i></a>
+                                                </li>
+                                            </div>
+                                        </ul>
+                                        <form class="anytime-form mt-4">
+                                            <input class="form-control anytime-task-input" id="title" placeholder="Enter task...">
+                                            <a href="#"><i class="bi bi-plus-circle"></i></a>
                                         </form>
                                     </div>
+
                                 </div>
                             </div>
 

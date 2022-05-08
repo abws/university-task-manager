@@ -3,12 +3,22 @@
  */
 
 export function showAnytimeTask(task) {
-    $('<li/>', {
-        id: task.id,
-        class: 'list-group-item',
-        text: task.title,
-        appendTo: '#anyTimeTasks'
+    $('<div/>', {
+        'id': task.id,
+        'class': 'mb-2',
+        //text: task.title,
+        'appendTo': '#anytime-task'
     })
+
+    $('<li/>'), {
+        'class': 'list-group-item anytime-task',
+        appendTo: '#' + task.id,
+    }
+
+    $('<input/>')
+    $('<span/>')
+    $('<a/>')
+
 }
 
 export function showScheduledTask(task) {
@@ -19,3 +29,11 @@ export function showScheduledTask(task) {
         appendTo: '#scheduledTasks'
     })
 }
+
+<div class="mb-2">
+<li class="list-group-item anytime-task">
+    <input class="form-check-input rounded-circle tick" type="checkbox" value="" id="flexCheckDefault">
+    <span class="mx-2">This is a list of tasks</span>
+    <a href="#"><i class="bi bi-pencil float-end"></i></a>
+</li>
+</div>

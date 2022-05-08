@@ -80,6 +80,50 @@ ul.header-right {
     box-shadow: 0px 2px 6px 0px #85a6d3;
 }
 
+/*Widgets*/
+.card {
+    box-shadow: -2px 2px 5px 0px #c6cbd4;
+}
+.card, .card-header{
+    border: white;
+    background-color: white;
+}
+
+/*Anytime task*/
+.tick:checked {
+    background-color: #85a6d3;
+}
+
+.anytime-task-input {
+    background-color: #ecf1f5;
+    border-radius: 0.25rem;
+    border-color: #c2ccda;
+}
+
+.anytime-task {
+    border-radius: 0.75rem!important;
+    border-color: white;
+    box-shadow: 0px 2px 5px 1px #c6cbd4;
+}
+
+i {
+    color: #85a0c0;
+}
+
+.anytime-form {
+    position: relative;
+}
+
+.anytime-form i {
+    position: absolute;
+    right: 0.75rem;
+    top: 0.3rem;
+}
+
+.anytime-task-input::placeholder {
+    font-style: italic;
+}
+
 
 
 /*For Mid Size Screens*/
