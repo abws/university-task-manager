@@ -1,15 +1,9 @@
 import { Task } from './modules/Task.mjs';
 import { showAnytimeTask,  showScheduledTask } from './templates/TaskListTemplates.js';
 
-
 window.onload = (event) => {
-    $('#title').val('hi');
-    $('#description').val('hi');
-
-    $('#date').val('2022-12-22');
-    $('#start').val('01:01');
-    $('#end').val('02:02');
-
+    let tasks = getTasks(); //retrieve tasks
+    Object.values(tasks).forEach(showAnytimeTask);
 }
 
 
@@ -19,12 +13,22 @@ window.onload = (event) => {
 if(!('tasks' in localStorage)) localStorage.setItem('tasks', '{}');
 if(!('counter' in localStorage)) localStorage.setItem('counter', 0);
 
+
+
 /**
  * Handle events
  */
-$('#add-task-button').click(function(evt) {
+
+$('#anytime-form').submit(function(evt) { //anytime-tasks form
     taskAdmin(evt);
+    $('#anytime-task-title').val('');
 })
+
+$('#add-anytime-task').click(function(evt) { //trigger form when + is pressed
+    $('#anytime-form').submit();
+})
+
+
 
 /**
  * Hub for the addition of tasks
@@ -32,16 +36,24 @@ $('#add-task-button').click(function(evt) {
  */
 function taskAdmin(evt) {
     evt.preventDefault(); //prevent form from submitting
+    let result = checkForm(evt);
 
-    let checkedDate = checkDate();
-    if (!checkedDate.at(0)) return false;
+    if (!result.at(0)) return false; //check the form is not empty
 
-    let task = new Task($('#title').val(), $('#description').val(), checkedDate.at(1), checkedDate.at(2));
+    if (result.at(1) == 'anytime-task') {
+        let task = new Task($('#anytime-task-title').val(), null, null, null);
+        addTask(task);
 
-    addTask(task);
-    
-    if (task.description != '') showScheduledTask(task);
-    else showAnytimeTask(task);
+        $('#toast-color').removeClass('toast-red');
+        showToast('New Task', 'has successfully been added', task.title, '#198754');
+        showAnytimeTask(task);
+    }
+
+    else {
+        let checkedDate = result.at(2);
+        let task = new Task($('#title').val(), $('#description').val(), checkedDate.at(1), checkedDate.at(2));
+        addTask(task);
+    }
 }
 
 /**
@@ -108,24 +120,89 @@ function getCurrentDate() {
 function addTask(task) {
     if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
 
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    let tasks = getTasks(); //retrieve tasks
     tasks[task.id] = task;
 
-    tasks = JSON.stringify(tasks);
-    localStorage.setItem('tasks', tasks);
-
-    task = JSON.parse(tasks)[task.id];
-
-    let date = new Date(task.start);
-    let date2 = new Date(task.end);
-    task.start = date;
-    task.end = date2;
-    Object.setPrototypeOf(task, Task.prototype);
-
-    console.log(Object.getPrototypeOf(task));
-    console.log(task.getTime());
-    console.log(task);
-
+    saveTasks(tasks);                 //save updated tasks
     return true;
+}
+
+/**
+ * Validates and checks the content of the submitted form
+ * @param {*} evt 
+ * @returns {boolean} false if the form is invalid
+ */
+function checkForm(evt) {
+    if (evt.target.id == 'anytime-form') {           //adding an anytime task
+       if ($('#anytime-task-title').val() == '') return false;
+       return [true, 'anytime-task']
+    }
+
+    else {                                          //adding a scheduled task
+        let checkedDate = checkDate();
+        if (!checkedDate.at(0)) return false;
+        return [true, 'scheduled-task', checkedDate]
+    }
+}
+
+/**
+ * Shows toast when a task is added or deleted
+ * @param {String} title 
+ * @param {String} header 
+ * @param {String} taskTitle
+ */
+function showToast(title, header, taskTitle, color) {
+    $('.toast-title').html(title);
+    $('.toast-body').html(header);
+    $('.new-task-alert').html(taskTitle);
+    $('#toast-color').attr('fill', color);
+    $('.toast').toast('show');	
+
+    let dateBuilder = new Date();
+    var minutes = dateBuilder.getMinutes();
+
+    if (minutes < 10) minutes = '0' + minutes;
+    let date = dateBuilder.getHours() + ":" + minutes;		
+    $('#time').html(date);	
+}
+
+/**
+ * Returns all tasks as an array containing Task objects
+ * @returns {Object.<Task>} tasks
+ */
+function getTasks() {
+    if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
+
+    let tasks = JSON.parse(localStorage.getItem('tasks')); //retrieve tasks
+    for (const [key, task] of Object.entries(tasks)) {     //transform items to Task objects
+        let dateStart = new Date(task.start);
+        let dateEnd = new Date(task.end);
+        task.start = dateStart;
+        task.end = dateEnd;
+        Object.setPrototypeOf(task, Task.prototype);    
+    }
+    return tasks;
+}
+
+/**
+ * Saves all tasks
+ * @param {Object.<Task>} tasks 
+ */
+function saveTasks(tasks) {
+    tasks = JSON.stringify(tasks);
+    localStorage.setItem('tasks', tasks);                  
+}
+
+
+/**
+ * Deletes a specific task
+ * @param {Task} task 
+ */
+export function deleteTask(task) {
+    let tasks = getTasks();
+    $('#' + task.id).remove();
+    delete tasks[task.id];
+    showToast('Deleted Task', 'has successfully been deleted', task.title, '#dc3545');
+    saveTasks(tasks);
 }
 

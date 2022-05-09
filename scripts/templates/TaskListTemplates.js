@@ -1,3 +1,5 @@
+import { deleteTask } from '../index.js';
+
 /**
  * Holds all reusable components for rendering onto the index page
  */
@@ -5,19 +7,45 @@
 export function showAnytimeTask(task) {
     $('<div/>', {
         'id': task.id,
-        'class': 'mb-2',
-        //text: task.title,
-        'appendTo': '#anytime-task'
+        'class': 'mb-3',
+        'appendTo': '#anytime-tasks'
     })
 
-    $('<li/>'), {
+    $('<li/>', {
+        'id': task.id + '-wrapper',
         'class': 'list-group-item anytime-task',
-        appendTo: '#' + task.id,
-    }
+        'appendTo': '#' + task.id
+    })
 
-    $('<input/>')
-    $('<span/>')
-    $('<a/>')
+    $('<input/>', {
+        'class': 'form-check-input rounded-circle tick',
+        'type': 'checkbox',
+        'id': task.id + '-check',
+        on: {
+            click: function() {
+                $(this).siblings('span').css('text-decoration', 'line-through');
+                //deleteTask(task);
+            }
+        },
+        'appendTo': '#' + task.id + '-wrapper'
+    })
+
+    $('<span/>', {
+        'class': 'mx-2',
+        'text': task.title,
+        'appendTo': '#' + task.id + '-wrapper'
+    })
+
+    $('<a/>', {
+        'id': task.id + '-edit',
+        'href': '#',
+        'appendTo': '#' + task.id + '-wrapper'
+    })
+
+    $('<i/>', {
+        'class': 'bi bi-pencil float-end',
+        'appendTo': '#' + task.id + '-edit'
+    })
 
 }
 
@@ -29,11 +57,3 @@ export function showScheduledTask(task) {
         appendTo: '#scheduledTasks'
     })
 }
-
-<div class="mb-2">
-<li class="list-group-item anytime-task">
-    <input class="form-check-input rounded-circle tick" type="checkbox" value="" id="flexCheckDefault">
-    <span class="mx-2">This is a list of tasks</span>
-    <a href="#"><i class="bi bi-pencil float-end"></i></a>
-</li>
-</div>
