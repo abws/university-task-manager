@@ -83,6 +83,8 @@ ul.header-right {
 /*Widgets*/
 .card {
     box-shadow: -2px 2px 5px 0px #c6cbd4;
+    /* max-height: 30rem;
+    overflow: scroll; */
 }
 .card, .card-header{
     border: white;

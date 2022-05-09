@@ -188,12 +188,40 @@
                     </div>
                     <div class="new-task-alert text-center my-2"></div>
                     <!-- <hr class="toast-hr"> -->
-                    <div class="toast-body text-center">
+                    <div class="toast-body text-center pt-0">
                     </div>
                 </div>
             </div>
 
         </div>
+
+        <!--Edit offcanvas-->
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"></div>
+        <div class="offcanvas-header">
+            <h5 id="offcanvasTopLabel">Offcanvas top</h5>
+
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+            </div>
+        </div>
+
+                <!--Edit offcanvas-->
+                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                    Link with href
+                  </a>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+                    <div class="offcanvas-header">
+                      <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                      Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+                    </div>
+                  </div>
+
     </body>
     
     <script type="module" src="scripts/index.js"></script>
