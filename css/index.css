@@ -19,6 +19,20 @@ ul.header-right {
     position: absolute;
 }
 
+label {
+    font-family: 'Open sans', sans-serif;
+    font-weight: 600;
+    color: #2d4461;
+}
+
+.form-control::placeholder {
+    color: #b0b8c2;
+}
+
+input[type="date"], input[type="time"]{
+    color: #b0b8c2;
+}
+
 /*SideBar*/
 .side-bar {
     background-color: #313a46;
@@ -136,6 +150,38 @@ i {
     width: 50%;
     color: #c1cddb;
 }
+
+/*Offcanvas*/
+.offcanvas-header {
+    background-color: #f2f7fd;
+    box-shadow: 3px 3px 10px 0px #d3dee9;
+    font-size: 1rem;
+}
+
+.offcanvas {
+    background-color: white;
+    font-family: 'Open sans', sans-serif;
+    color: #5e6f85;
+}
+
+.description {
+    width: 75%;
+}
+
+.mic {
+    background-color: #f2f6fa;
+    border-radius: 4rem;
+}
+
+.mic:hover {
+    cursor: pointer;
+    box-shadow: -3px 3px 10px 0px #a5a8ac;
+}
+
+
+
+
+
 
 
 

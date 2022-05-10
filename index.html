@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200&family=Viga&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -196,31 +197,51 @@
         </div>
 
         <!--Edit offcanvas-->
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasTop" role="button" aria-controls="offcanvasExample">
+            Link with href
+          </a>
 
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"></div>
-        <div class="offcanvas-header">
-            <h5 id="offcanvasTopLabel">Offcanvas top</h5>
-
+        <div class="offcanvas offcanvas-end show" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+                <h5>Add Task</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body mx-3 mt-3 d-flex flex-column">
+                <!--Tasks-->
+                <form>
+                    <div class="mb-4">
+                        <label for="title">Title</label>
+                        <input class="form-control" id="title" placeholder="Title...">
+                    </div>
+                    <div class="mb-4 ps-1">
+                        <label for="description">Description</label>
+                        <div class="row ps-2 align-items-start">
+                            <textarea class="form-control description" id="description" placeholder="Description..." rows="3"></textarea>
+                            <svg class="col-auto mic ms-3" xmlns="http://www.w3.org/2000/svg" height="45" width="25" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
+                                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
+                              </svg>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="date">Date</label>
+                        <input class="form-control" id="date" type="date">
+                    </div>
+                    <div class="mb-4">
+                        <label for="start">Start</label>
+                        <input class="form-control" id="start" type="time">
+                    </div>
+                    <div class="mb-4">
+                        <label for="end">End</label>
+                        <input class="form-control" id="end" type="time">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer mb-2">
+                <button id="add-task-button" type="submit" class="btn btn-danger">Cancel</button>                    
+                <button id="add-task-button" type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
-
-                <!--Edit offcanvas-->
-                <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                    Link with href
-                  </a>
-                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-                    <div class="offcanvas-header">
-                      <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
-                      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                      Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
-                    </div>
-                  </div>
 
     </body>
     
