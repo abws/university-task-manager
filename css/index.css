@@ -33,6 +33,13 @@ input[type="date"], input[type="time"]{
     color: #b0b8c2;
 }
 
+.task-input {
+    border-radius: 0.75rem;
+    margin-top: .5rem;
+}
+
+
+
 /*SideBar*/
 .side-bar {
     background-color: #313a46;
@@ -44,6 +51,8 @@ input[type="date"], input[type="time"]{
 .nav-brand {
     font-size: 2rem;
     color: white;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
 
 .nav-link.side {
@@ -151,6 +160,15 @@ i {
     color: #c1cddb;
 }
 
+.edit-wrapper {
+    min-width: 2rem;
+}
+
+.edit-icon {
+    max-width: 75%;
+    height: auto;
+}
+
 /*Offcanvas*/
 .offcanvas-header {
     background-color: #f2f7fd;
@@ -171,11 +189,41 @@ i {
 .mic {
     background-color: #f2f6fa;
     border-radius: 4rem;
+    box-shadow: -3px 3px 10px 0px #a5a8ac;
 }
 
 .mic:hover {
     cursor: pointer;
+    height: 50px;
+    weight: 33px;
+}
+
+.btn-add {
+    background-color: #5d87c7;
     box-shadow: -3px 3px 10px 0px #a5a8ac;
+    font-size: 1.35rem;
+    color: white;
+}
+.btn-add:hover {
+    color: white;
+}
+.btn-cancel {
+    box-shadow: -1px 1px 10px 0px #a5a8ac;
+}
+
+.mic-icon {
+    max-width: 75%;
+    height: auto;
+    padding: 0.2rem;
+    border-radius: 2rem;
+    background-color: #f0efe3;
+    box-shadow: -1px 1px 10px 0px #a5a8ac;
+}
+
+.mic-wrapper {
+    min-width: 5rem;
+    text-align: center;
+    transform: translateY(25%);
 }
 
 

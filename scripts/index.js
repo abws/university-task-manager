@@ -4,6 +4,7 @@ import { showAnytimeTask,  showScheduledTask } from './templates/TaskListTemplat
 window.onload = (event) => {
     let tasks = getTasks(); //retrieve tasks
     Object.values(tasks).forEach(showAnytimeTask);
+    configureRecognition();
 }
 
 
@@ -205,4 +206,26 @@ export function deleteTask(task) {
     showToast('Deleted Task', 'has successfully been deleted', task.title, '#dc3545');
     saveTasks(tasks);
 }
+
+/**
+ * Configures the voice recognition service
+ */
+function configureRecognition() {
+    var SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
+    let recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+    let resultTarget = $('#description');
+    let mic = $('#mic');
+    mic.click(function(evt) {
+        recognition.start();
+    })
+    recognition.onresult = function(evt) {
+        let resultText = evt.results[0][0].transcript;
+        resultTarget.val(resultText);
+    }
+}
+
 
