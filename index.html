@@ -184,7 +184,7 @@
             <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
                 <div id="liveToast" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
-                        <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect id='toast-color' width="100%" height="100%" fill="#198754"></rect></svg>
+                        <svg id="toast-icon" class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect id='toast-color' width="100%" height="100%" fill="#198754"></rect></svg>
                         <strong class="toast-title me-auto"></strong>
                         <small id="time"></small>
                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -205,7 +205,7 @@
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
             <div class="offcanvas-header">
-                <h5>Add Task</h5>
+                <h5 class="edit-title">Add Task</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body mx-3 mt-3 d-flex flex-column">
@@ -218,7 +218,7 @@
                     <div class="mb-5 ps-1">
                         <label for="description">Description</label>
                         <div class="row ps-2 align-items-start justify-content-around ">
-                            <textarea class="form-control description task-input" id="description" placeholder="Description..." rows="2"></textarea>
+                            <textarea class="form-control description task-input" id="description" placeholder="Description..." rows="3"></textarea>
                             <a id="mic" href="#" class="mic-wrapper col-auto"><img class="img-fluid mic-icon" src="images/microphone.svg" alt=""></a>
 
                         </div>

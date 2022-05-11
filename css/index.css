@@ -195,7 +195,6 @@ i {
 .mic:hover {
     cursor: pointer;
     height: 50px;
-    weight: 33px;
 }
 
 .btn-add {
@@ -226,6 +225,10 @@ i {
     transform: translateY(25%);
 }
 
+.edit-title {
+    color: #313a46;
+    font-family: "Helvetica",
+}
 
 
 

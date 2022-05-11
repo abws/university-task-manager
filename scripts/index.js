@@ -1,8 +1,8 @@
 import { Task } from './modules/Task.mjs';
-import { showAnytimeTask,  showScheduledTask } from './templates/TaskListTemplates.js';
+import { showAnytimeTask,  showScheduledTask, addBoxIcon, addLightningIcon } from './templates/TaskListTemplates.js';
 
 window.onload = (event) => {
-    let tasks = getTasks(); //retrieve tasks
+    let tasks = getTasks('tasks');
     Object.values(tasks).forEach(showAnytimeTask);
     configureRecognition();
 }
@@ -43,9 +43,9 @@ function taskAdmin(evt) {
 
     if (result.at(1) == 'anytime-task') {
         let task = new Task($('#anytime-task-title').val(), null, null, null);
-        addTask(task);
+        addTask(task, 'tasks');
 
-        $('#toast-color').removeClass('toast-red');
+        addBoxIcon();
         showToast('New Task', 'has successfully been added', task.title, '#198754');
         showAnytimeTask(task);
     }
@@ -114,17 +114,15 @@ function getCurrentDate() {
 }
 
 /**
- * Stores tasks into local storage
+ * Stores task into local storage
  * @param {Task} task 
  * @returns {boolean}
  */
-function addTask(task) {
-    if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
-
-    let tasks = getTasks(); //retrieve tasks
+function addTask(task, storage) {
+    let tasks = getTasks(storage); //retrieve tasks
     tasks[task.id] = task;
-
-    saveTasks(tasks);                 //save updated tasks
+    
+    saveTasks(tasks, storage);     //save updated tasks
     return true;
 }
 
@@ -156,7 +154,7 @@ function showToast(title, header, taskTitle, color) {
     $('.toast-title').html(title);
     $('.toast-body').html(header);
     $('.new-task-alert').html(taskTitle);
-    $('#toast-color').attr('fill', color);
+    if (color == null) $('.toast-color').attr('fill', color);
     $('.toast').toast('show');	
 
     let dateBuilder = new Date();
@@ -169,12 +167,13 @@ function showToast(title, header, taskTitle, color) {
 
 /**
  * Returns all tasks as an array containing Task objects
+ * @param {String} storage Where to fetch the tasks from
  * @returns {Object.<Task>} tasks
  */
-function getTasks() {
-    if(!('tasks' in localStorage)) localStorage.setItem('tasks', {});
+function getTasks(storage) {
+    if(!(storage in localStorage)) localStorage.setItem(storage, '{}');
 
-    let tasks = JSON.parse(localStorage.getItem('tasks')); //retrieve tasks
+    let tasks = JSON.parse(localStorage.getItem(storage)); //retrieve tasks
     for (const [key, task] of Object.entries(tasks)) {     //transform items to Task objects
         let dateStart = new Date(task.start);
         let dateEnd = new Date(task.end);
@@ -188,10 +187,12 @@ function getTasks() {
 /**
  * Saves all tasks
  * @param {Object.<Task>} tasks 
+ * @param {String} strong Where to save the tasks 
  */
-function saveTasks(tasks) {
+function saveTasks(tasks, storage) {
     tasks = JSON.stringify(tasks);
-    localStorage.setItem('tasks', tasks);                  
+    console.log(tasks);
+    localStorage.setItem(storage, tasks);                  
 }
 
 
@@ -199,12 +200,15 @@ function saveTasks(tasks) {
  * Deletes a specific task
  * @param {Task} task 
  */
-export function deleteTask(task) {
-    let tasks = getTasks();
+export function deleteTask(task, actualDelete) {
+    let tasks = getTasks('tasks');
     $('#' + task.id).remove();
     delete tasks[task.id];
-    showToast('Deleted Task', 'has successfully been deleted', task.title, '#dc3545');
-    saveTasks(tasks);
+    if (actualDelete) {
+        addBoxIcon();
+        showToast('Deleted Task', 'has successfully been deleted', task.title, '#dc3545');
+    }
+    saveTasks(tasks, 'tasks');
 }
 
 /**
@@ -225,6 +229,29 @@ function configureRecognition() {
     recognition.onresult = function(evt) {
         let resultText = evt.results[0][0].transcript;
         resultTarget.val(resultText);
+    }
+}
+
+/**
+ * Adds a task to list of completed tasks
+ * @param {string} task 
+ */
+function completeTask(task) {
+    deleteTask(task, false);
+    addLightningIcon();
+    showToast('Task completed', 'has been completed!', task.title);
+    addTask(task, 'completedTasks');
+
+}
+
+/**
+ * Manages all requests from the template file
+ * @param {String} job The function the template wants to call
+ * @param {*} context The context of the call
+ */
+export function templateManager(job, context) {
+    if (job == 'completeTask') {                //context is a task here
+        completeTask(context);
     }
 }
 
