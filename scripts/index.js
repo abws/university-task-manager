@@ -200,7 +200,7 @@ function saveTasks(tasks, storage) {
  * Deletes a specific task
  * @param {Task} task 
  */
-export function deleteTask(task, actualDelete) {
+function deleteTask(task, actualDelete) {
     let tasks = getTasks('tasks');
     $('#' + task.id).remove();
     delete tasks[task.id];
@@ -241,7 +241,19 @@ function completeTask(task) {
     addLightningIcon();
     showToast('Task completed', 'has been completed!', task.title);
     addTask(task, 'completedTasks');
+}
 
+function findById(taskId) {
+    let tasks = getTasks('tasks');
+    task = tasks[taskId];
+    return task;
+}
+
+function replaceTask(oldTask, newTask) {
+    for (const key of Object.keys(oldTask)) {
+        if (key == 'id') continue
+        oldTask[key] = newTask[key];
+    }
 }
 
 /**
@@ -254,5 +266,7 @@ export function templateManager(job, context) {
         completeTask(context);
     }
 }
+
+
 
 
