@@ -98,8 +98,8 @@ input[type="date"], input[type="time"]{
 }
 
 .btn-success {
-    background-color: #85a6d3!important;
-    border-color: #85a6d3!important;
+    background-color: #296993!important;
+    border-color: #296993!important;
     box-shadow: 0px 2px 6px 0px #85a6d3;
 }
 
@@ -222,6 +222,11 @@ i {
 }
 
 /*Accordian*/
+.accordion {
+    border-radius: 1rem;
+    box-shadow: -2px 2px 5px 0px #c6cbd4;
+}
+
 .accordion-button:not(.collapsed) {
     color: #3e634a;
     background-color: #e7f0e5;
@@ -240,6 +245,7 @@ i {
 
 .completed {
     text-decoration: line-through;
+    text-decoration-color: #404b5ab0;
 }
 
 /*Offcanvas*/

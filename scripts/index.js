@@ -1,9 +1,12 @@
 import { Task } from './modules/Task.mjs';
-import { showAnytimeTask,  showScheduledTask, addBoxIcon, addLightningIcon } from './templates/TaskListTemplates.js';
+import { showAnytimeTask,  showScheduledTask, addBoxIcon, addLightningIcon, showCompleted } from './templates/TaskListTemplates.js';
 
 window.onload = (event) => {
-    let tasks = getTasks('tasks');
+    let tasks = getTasks('tasks'),
+    completed = getTasks('completedTasks');
     Object.values(tasks).forEach(showAnytimeTask);
+    Object.values(completed).forEach(showCompleted);
+
     configureRecognition();
 }
 
@@ -214,7 +217,9 @@ function saveTasks(tasks, storage) {
  */
 function deleteTask(task, actualDelete) {
     let tasks = getTasks('tasks');
-    $('#' + task.id).remove();
+    $('#' + task.id).fadeOut(500, function() {
+        $(this.remove);
+    })
     delete tasks[task.id];
     if (actualDelete) {
         addBoxIcon();
@@ -253,6 +258,7 @@ function completeTask(task) {
     addLightningIcon();
     showToast('Task completed', 'has been completed!', task.title);
     addTask(task, 'completedTasks');
+    showCompleted(task);
 }
 
 function findById(taskId) {
@@ -298,7 +304,16 @@ function editTask() {
     newTask = new Task($('#title').val(), null, null, null, null);
     replaceTask(oldTask, newTask);
     location.reload();
-    
+}
+
+function deleteCompleted(task) {
+    let tasks = getTasks('completedTasks');
+    $('#' + task.id + '-completed').fadeOut(500, function() {
+        $(this.remove);
+    })
+    delete tasks[task.id];
+    saveTasks(tasks, 'completedTasks');
+    showToast('Deleted Task', 'has successfully been deleted', task.title, '#dc3545');
 }
 
 /**
@@ -313,6 +328,10 @@ export function templateManager(job, context) {
 
     if (job == 'setUpForm') {
         setUpForm(context);
+    }
+
+    if (job == 'deleteCompleted') {
+        deleteCompleted(context);
     }
 }
 
