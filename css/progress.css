@@ -1,5 +1,6 @@
 body {
     display: flex;
+    background-color: white!important;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -8,5 +9,11 @@ body {
 .chart {
     position: relative;
     width: 100%;
-    min-height: 100%;
+    max-height: 95%;
+    padding: 4rem!important;
+}
+
+
+.sidebar {
+    position: fixed;
 }

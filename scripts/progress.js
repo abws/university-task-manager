@@ -20,7 +20,7 @@ const data = {
     datasets: [
         {
             data: [20, 23, 34, 22, 25, 35, 40], //x-axis 
-            label: 'Tasks This Year',
+            label: 'Tasks Completed By Month - 2022',
             fill: true,
             backgroundColor: gradient,
             borderColor: 'white',
