@@ -16,8 +16,9 @@ $(document).ready(function() {
     checkButton();
   });
 
-  $('#register').click(function(){
-      if (checkButton()) window.location.href = '../../';
+  $('#register').click(function(evt){
+      evt.preventDefault();
+      if (checkButton()) location.href = "/";
   })
   
   $("<div/>", {

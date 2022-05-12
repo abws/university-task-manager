@@ -44,7 +44,7 @@ input[type="date"], input[type="time"]{
 .side-bar {
     background-color: #313a46;
     max-width: 18rem;
-    height: 100vh;
+    min-height: 100vh;
     overflow: scroll;
 }
 
@@ -421,15 +421,37 @@ i {
     }
 }
 
-/*Very small screens*/
-@media only screen and (max-width:369px) {
-    .side-bar {
-        max-width: 4rem;
-        padding: 1.5rem 0!important;
+@media only screen and (max-width: 615px){
+    .dashboard {
+        padding-right: 0!important;
+        padding-left: 1rem
     }
-    
-    .row {
-        flex-direction: column-reverse;
+}
+
+/*Very small screens*/
+@media only screen and (max-width:385px) {
+    .side-bar {
+        max-width: 3rem;
+        padding: 0rem !important;
+        overflow-x: hidden;
+        justify-self: center;
+    }
+    .img-fluid {
+        margin: 0 auto!important;
+    }
+    .dashboard, li.list-group-item {
+        padding: 0!important;
+        margin: 0 auto!important;
+
+    }
+
+    .card {
+        box-shadow: none;
+        margin-top: 0.2rem
+    }
+
+    .card-header, .card-body {
+        padding: 0 !important;
     }
 }
 

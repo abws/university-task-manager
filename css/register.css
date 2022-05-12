@@ -3,9 +3,15 @@
   }
 .btn-primary {
   display: block;
-  background-color: #d0dcea;
-  border: #adafb1;
-  color: #0868a5;
+    background-color: #5a9cca!important;
+    border-color: #296993!important;
+    box-shadow: 0px 2px 6px 0px #85a6d3;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  color: rgba(255, 255, 255, 0.568);
+
 }
 
 .head {
