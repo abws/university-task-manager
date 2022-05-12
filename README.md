@@ -5,9 +5,9 @@ Entirely Front-End Web-Based Task Manager
 ## CSS Libraries used:
 1. Bootstrap - Reusable components & CSS classes
 
-## Javascript Libraries used
+## Javascript Libraries used:
 1. JQuery - Mainly for DOM manipulation
-2. anime.js - Animation
+2. Chart.js - For data visualization
 
 ## Web API's used:
 1. Web Storage API - Client-side storage
@@ -20,4 +20,4 @@ Entirely Front-End Web-Based Task Manager
 
 
 ## Licence
-[abws](https://abdiwahabsalah.com)
+[abws](https://anon.com)

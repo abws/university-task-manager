@@ -1,0 +1,42 @@
+.form-control {
+    background-color: #f5f8f9;
+  }
+.btn-primary {
+  display: block;
+  background-color: #d0dcea;
+  border: #adafb1;
+  color: #0868a5;
+}
+
+.head {
+  color: #adafb1;
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+.custom {
+    background-color: #fbfeff!important;
+    border-radius: 0.5rem!important;
+    border: 1px solid rgb(206, 202, 202);
+}
+
+.custom::placeholder {
+    color: rgb(141, 141, 141);
+    font-family: 'Barlow', sans-serif!important;
+}
+
+.heading {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 3rem;
+}
+
+.me-5 {
+    margin-right: 16rem!important;
+}
+
+@media (min-width: 992px) {
+.lhs {
+  border-left: 0.5px solid #adafb1;
+
+}
+}
