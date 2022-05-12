@@ -4,3 +4,9 @@ body {
     justify-content: center;
     height: 100vh;
 }
+
+.chart {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
