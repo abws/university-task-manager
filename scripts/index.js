@@ -29,6 +29,19 @@ $('#add-anytime-task').click(function(evt) { //trigger form when + is pressed
     $('#anytime-form').submit();
 })
 
+$('#title, #description, #date, #start, #end').keyup(function(evt) {
+    if (!(formHandler())) $('#add-task-button').prop('disabled', true);
+
+    else $('#add-task-button').prop('disabled', false);
+})
+
+$('#add-task-button').click(function(evt) { //trigger when task is added or edited through form    
+    if (formHandler()) editTask();
+})
+
+function a(x) {
+    console.log(x);
+}
 
 
 /**
@@ -46,7 +59,7 @@ function taskAdmin(evt) {
         addTask(task, 'tasks');
 
         addBoxIcon();
-        showToast('New Task', 'has successfully been added', task.title, '#198754');
+        showToast('New Task', 'has successfully been added', task.title, '#2a6894');
         showAnytimeTask(task);
     }
 
@@ -154,7 +167,7 @@ function showToast(title, header, taskTitle, color) {
     $('.toast-title').html(title);
     $('.toast-body').html(header);
     $('.new-task-alert').html(taskTitle);
-    if (color == null) $('.toast-color').attr('fill', color);
+    if (color != null) $('#toast-color').attr('fill', color);
     $('.toast').toast('show');	
 
     let dateBuilder = new Date();
@@ -191,7 +204,6 @@ function getTasks(storage) {
  */
 function saveTasks(tasks, storage) {
     tasks = JSON.stringify(tasks);
-    console.log(tasks);
     localStorage.setItem(storage, tasks);                  
 }
 
@@ -245,7 +257,7 @@ function completeTask(task) {
 
 function findById(taskId) {
     let tasks = getTasks('tasks');
-    task = tasks[taskId];
+    let task = tasks[taskId];
     return task;
 }
 
@@ -254,6 +266,39 @@ function replaceTask(oldTask, newTask) {
         if (key == 'id') continue
         oldTask[key] = newTask[key];
     }
+    let tasks = getTasks('tasks');
+    tasks[oldTask.id] = oldTask;
+    saveTasks(tasks, 'tasks');
+}
+
+function setUpForm(task) {
+    $('#task-pressed').val(task.id); //set up 
+    $('.edit-title').text('Edit Task');
+    if (task.description == null) {
+        a(task.title);
+        $('#title').val(task.title);
+        $('#add-task-button').text('Edit Task');
+    }
+}
+
+function formHandler() {
+    if ($('#title').val() == '') return false;
+    if (($('#title').val() != '') &&
+        ($('#description').val() != '') && ($('#date').val() != '') && ($('#start').val() != '')  && ($('#end').val() != ''))
+        return true; 
+    if (($('#title').val() != '') && ( 
+        ($('#description').val() != '') || ($('#date').val() != '') || ($('#start').val() != '')  || ($('#end').val() != '')
+        )) return false;
+
+    return true;
+}
+
+function editTask() {
+    let oldTask = findById($('#task-pressed').val()),
+    newTask = new Task($('#title').val(), null, null, null, null);
+    replaceTask(oldTask, newTask);
+    location.reload();
+    
 }
 
 /**
@@ -264,6 +309,10 @@ function replaceTask(oldTask, newTask) {
 export function templateManager(job, context) {
     if (job == 'completeTask') {                //context is a task here
         completeTask(context);
+    }
+
+    if (job == 'setUpForm') {
+        setUpForm(context);
     }
 }
 

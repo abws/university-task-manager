@@ -44,7 +44,15 @@ export function showAnytimeTask(task) {
     $('<a/>', {
         'id': task.id + '-edit',
         'class': 'edit-wrapper',
-        'href': '#',
+        'data-bs-toggle': "offcanvas",
+        'href': "#offcanvasTop", 
+        'role': "button", 
+        'aria-controls': "expandable sidebar",
+        on: {
+            click: function() {
+                templateManager('setUpForm', task);
+            }
+        },
         'appendTo': '#' + task.id + '-list'
     })
 
@@ -80,7 +88,7 @@ export function addLightningIcon() {
 
 export function addBoxIcon() {
     $('#toast-icon').replaceWith(
-        '<svg id="toast-icon" class="bd-placeholder-img toast-color rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#198754"></rect></svg>'
+        '<svg id="toast-icon" class="bd-placeholder-img toast-color rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect id="toast-color" width="100%" height="100%" fill="#198754"></rect></svg>'
     )
 }
 
