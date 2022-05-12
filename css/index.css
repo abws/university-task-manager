@@ -69,6 +69,14 @@ input[type="date"], input[type="time"]{
     color: white;
 }
 
+.sidebar-bottom {
+    border-top: 1px solid rgb(217, 226, 235);
+}
+
+.link-white {
+    color: white!important;
+}
+
 /*Header*/
 .custom-header {
     background-color: white;
@@ -112,11 +120,13 @@ input[type="date"], input[type="time"]{
 .card, .card-header{
     border: white;
     background-color: white;
+    margin-bottom: 0.4rem;
 }
-
-.card-header span {
-    color: rgb(13, 67, 112)!important;
+.card-header span, .accordion span {
+    color: rgb(10, 50, 83)!important;
     font-family: 'Open Sans', sans-serif!important;
+    font-weight: 500;
+    font-size: 1.05rem;
 
 }
 
@@ -155,7 +165,7 @@ i {
     font-style: italic;
 }
 
-.card-header span, .new-task-alert{
+.new-task-alert{
     font-family: 'Ubuntu', sans-serif;
     color: #5e6f85;
 }
@@ -296,6 +306,22 @@ i {
     border-radius: 2rem;
     background-color: #f0efe3;
     box-shadow: -1px 1px 10px 0px #a5a8ac;
+}
+
+.mic-icon.show {
+    animation: mic 1s ease-in forwards infinite alternate;
+}
+
+@keyframes mic {
+    0% {
+        background-color: #f0efe3;
+        max-width: 75%;
+    }
+    100% {
+        background-color: rgb(172, 45, 45);
+        max-width: 90%;
+    }
+
 }
 
 .mic-wrapper {

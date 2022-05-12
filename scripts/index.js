@@ -14,8 +14,8 @@ window.onload = (event) => {
 /**
  * Local storage preparation
  */
-if(!('tasks' in localStorage)) localStorage.setItem('tasks', '{}');
-if(!('counter' in localStorage)) localStorage.setItem('counter', 0);
+ if(!('tasks' in localStorage)) localStorage.setItem('tasks', '{}');
+ if(!('counter' in localStorage)) localStorage.setItem('counter', 0);
 
 
 
@@ -167,6 +167,7 @@ function checkForm(evt) {
  * @param {String} taskTitle
  */
 function showToast(title, header, taskTitle, color) {
+    console.log(title);
     $('.toast-title').html(title);
     $('.toast-body').html(header);
     $('.new-task-alert').html(taskTitle);
@@ -235,15 +236,17 @@ function configureRecognition() {
     var SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition;
     let recognition = new SpeechRecognition();
     recognition.continuous = false;
-    recognition.lang = 'en-US';
+    recognition.lang = 'en-GB';
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
     let resultTarget = $('#description');
     let mic = $('#mic');
     mic.click(function(evt) {
+        mic.children('img').addClass('show');
         recognition.start();
     })
     recognition.onresult = function(evt) {
+        mic.children('img').removeClass('show');
         let resultText = evt.results[0][0].transcript;
         resultTarget.val(resultText);
     }
@@ -312,8 +315,12 @@ function deleteCompleted(task) {
         $(this.remove);
     })
     delete tasks[task.id];
+    addTask(task, 'deletedTasks');
+    
     saveTasks(tasks, 'completedTasks');
+    addBoxIcon();
     showToast('Deleted Task', 'has successfully been deleted', task.title, '#dc3545');
+
 }
 
 /**
