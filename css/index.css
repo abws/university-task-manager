@@ -114,6 +114,12 @@ input[type="date"], input[type="time"]{
     background-color: white;
 }
 
+.card-header span {
+    color: rgb(13, 67, 112)!important;
+    font-family: 'Open Sans', sans-serif!important;
+
+}
+
 /*Anytime task*/
 .tick:checked {
     background-color: #85a6d3;
@@ -167,6 +173,73 @@ i {
 .edit-icon {
     max-width: 75%;
     height: auto;
+}
+
+.scheduled-task {
+    border: none;
+    border-bottom: 1px solid rgb(217, 226, 235);
+    padding-right: 0.2rem!important;
+    padding-top: 0.2rem!important;
+}
+
+.title-timed, .accordion-button {
+    font-family: 'Open Sans', sans-serif;
+    color: #2d4461;
+}
+
+.description-timed {
+    color: #8095ad;
+    font-size: 0.75rem;
+
+}
+.scheduled-task:hover {
+    border: none;
+    box-shadow: -3px 3px 10px 0px #a5a8ac;
+}
+
+.badge {
+    background-color: #23d33b59!important;
+    color:#0e9652;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    max-height: 3rem;
+    margin-left: 1rem;
+}
+
+.badge-date {
+    align-self: end;
+    margin-bottom: 0;
+    font-size: 0.7rem;
+}
+
+.bg-tom {
+    background-color: #f1a747c2!important;
+    color:#96660e;
+
+}
+
+/*Accordian*/
+.accordion-button:not(.collapsed) {
+    color: #3e634a;
+    background-color: #e7f0e5;
+
+}
+
+.accordion-button::after {
+    margin-left: 0rem;
+    color: #d5dfeb;
+    background-image: url(../images/drop-down.svg);
+}
+.completed-icon {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.completed {
+    text-decoration: line-through;
 }
 
 /*Offcanvas*/
