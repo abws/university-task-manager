@@ -4,6 +4,9 @@ import { showAnytimeTask,  showScheduledTask, addBoxIcon, addLightningIcon, show
 window.onload = (event) => {
     let tasks = getTasks('tasks'),
     completed = getTasks('completedTasks');
+    //let task = new Task('Wash Laundry', null, null, null); //sample task - DELETE WHEN TESTING
+    //tasks[task.id] = task;
+    //saveTasks(tasks);
     Object.values(tasks).forEach(showAnytimeTask);
     Object.values(completed).forEach(showCompleted);
 
@@ -343,5 +346,62 @@ export function templateManager(job, context) {
 }
 
 
+const c = document.getElementById('chart').getContext('2d');
+let delayed;
 
+const labels = [
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+    'Sun'
+];
+
+let gradient = c.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, 'rgba(58, 123, 213, 1)');
+gradient.addColorStop(1, 'rgba(0, 210, 255, 0.3)');
+
+const data = {
+    labels,
+    datasets: [
+        {
+            data: [9, 3, 5, 6, 12, 3, 5], //x-axis 
+            label: 'Tasks Completed By This Week',
+            fill: true,
+            backgroundColor: gradient,
+            borderColor: 'white',
+            tension: 0.3
+            //pointBackgroundColor: 
+        },
+    ]
+};
+
+const config = {
+    type: 'bar',
+    data: data,
+    options: {
+        responsive: true,
+        animation: {
+            onComplete: () => {
+              delayed = true;
+            },
+            delay: (context) => {
+              let delay = 0;
+              if (context.type === 'data' && context.mode === 'default' && !delayed) {
+                delay = context.dataIndex * 300 + context.datasetIndex * 100;
+              }
+              return delay;
+            },
+          },
+          
+        radius: 5,
+        hitRadius: 20,
+        hoverRadius: 20,
+        maintainAspectRatio: true
+    }
+}
+
+const chart = new Chart(c, config);
 

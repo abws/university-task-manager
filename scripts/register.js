@@ -66,19 +66,20 @@ $(document).ready(function() {
   }
   
   function validatePassword(password) {
-    if (password != $('#password').val()) {
+    if (password.trim() === "") {
+      $('#password-error').hide();
+      $('#password').removeClass('is-valid is-invalid');
+      $('#password-repeat').removeClass('is-valid is-invalid');
+      return false;
+    }
+
+    else if (password != $('#password').val()) {
       $('#password-error').show();
       $('#password').removeClass('is-valid');
       $('#password-repeat').removeClass('is-valid');
       $('#password-repeat').addClass('is-invalid');
       return false;
   
-    }
-    else if (password.trim() === "") {
-      $('#password-error').hide();
-      $('#password').removeClass('is-valid is-invalid');
-      $('#password-repeat').removeClass('is-valid is-invalid');
-      return false;
     }
     $('#password-error').hide();
     $('#password').removeClass('is-invalid');

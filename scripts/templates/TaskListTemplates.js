@@ -128,6 +128,31 @@ export function showCompleted(task) {
 
 }
 
+export function showDeleted(task) {
+    $('<div/>', {
+        'id': task.id + '-deleted',
+        'class': 'mb-3',
+        'appendTo': '#deleted-tasks'
+    })
+
+    $('<li/>', {
+        'id': task.id + '-list-deleted',
+        'class': 'list-group-item anytime-task d-flex justify-content-between pe-0',
+        'appendTo': '#' + task.id + '-deleted'
+    })
+
+    $('<div/>', {
+        'id': task.id + '-wrapper-deleted',
+        'appendTo': '#' + task.id + '-list-deleted'
+    })
+
+    $('<span/>', {
+        'class': 'mx-2 ',
+        'text': task.title,
+        'appendTo': '#' + task.id + '-wrapper-deleted'
+    })
+}
+
 export function addLightningIcon() {
     $('#toast-icon').replaceWith(
         $('<img/>', {

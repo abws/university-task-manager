@@ -161,26 +161,16 @@
                                 <div class="card">
 
                                     <div class="card-header d-flex justify-content-between">   
-                                        <span>Bin</span> 
+                                        <span>Bin</span>
                                         <a href="#"><i class="bi bi-gear"></i></a>
                                     </div>
+                                    <span class="description-timed ms-3">All items in the bin will delete after 1 day</span> 
 
                                     <div class="card-body">
-                                        <ul class="list-group" id="anytime-tasks">
-                                            <div class="mb-3">
-                                                <li class="list-group-item anytime-task d-flex justify-content-between pe-0">
-                                                    <div>
-                                                        <input class="form-check-input rounded-circle tick" type="checkbox" value="">
-                                                        <span class="mx-2">This is a list of tasks</span>
-                                                    </div>
-                                                    <a class="edit-wrapper" href="#"><img class="edit-icon img-fluid" src="../images/pencil-2.svg" alt=""></a>
-                                                </li>
-                                            </div>
+                                        <ul class="list-group" id="deleted-tasks">
+                                            
                                         </ul>
-                                        <form id="anytime-form" class="anytime-form mt-4">
-                                            <input id='anytime-task-title' class="form-control anytime-task-input" id="title" placeholder="Enter task..." autocomplete="off">
-                                            <a id='add-anytime-task' href="#"><i class="bi bi-plus-circle"></i></a>
-                                        </form>
+                                     
                                     </div>
 
                                 </div>
@@ -195,5 +185,5 @@
         </div>  
     </body>
     
-    <script type="module" src="../scripts/index.js"></script>
+    <script type="module" src="../scripts/bin.js"></script>
 </html>

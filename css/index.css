@@ -258,9 +258,14 @@ i {
     text-decoration-color: #404b5ab0;
 }
 
+.divider {
+    width: 75%;
+    margin: auto;
+}
+
 /*Offcanvas*/
 .offcanvas-header {
-    background-color: #faf1d8;
+    background-color: #e5eef3ea;
     box-shadow: 3px 3px 5px 0px #d3dee9;
     font-size: 1rem;
 }
@@ -336,9 +341,10 @@ i {
 }
 
 
-
-
-
+.chart {
+    position: relative;
+    max-width: 100%;
+}
 
 
 /*For Mid Size Screens*/
@@ -439,10 +445,17 @@ i {
     .img-fluid {
         margin: 0 auto!important;
     }
-    .dashboard, li.list-group-item {
-        padding: 0!important;
-        margin: 0 auto!important;
 
+    .dashboard {
+        padding: 0!important;
+    }
+
+    .dashboard, li.list-group-item {
+        margin: 0 auto!important;
+    }
+
+    li.list-group-item {
+        padding: auto;
     }
 
     .card {
@@ -452,6 +465,10 @@ i {
 
     .card-header, .card-body {
         padding: 0 !important;
+    }
+
+    .nav-link.side {
+        padding: 9px;
     }
 }
 
